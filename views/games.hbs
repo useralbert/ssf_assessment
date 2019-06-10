@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Games</title>
+</head>
+<body>
+    <div>
+        <h2>Games with <code>{{ q }}</code></h2>
+    </div>
+    <div>
+        {{#if noResult}}
+            <h4>Your query of '<code>{{ q }}</code>' returns no result</h2>
+        {{else}}
+            <div>
+                <form action="/display" method="GET"></form>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each result}}
+                                <tr>
+                                    <td>
+                                    <button type="submit">{{ this }}</button>
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>  
+                </form>    
+            </div>
+        {{/if}}
+    </div>
+    <div>
+        <Form method="GET" action="./public/index" >
+            <button type="submit" style = "text-align: right;">Back</button>
+        </Form>
+    </div>
+    
+</body>
+</html>
